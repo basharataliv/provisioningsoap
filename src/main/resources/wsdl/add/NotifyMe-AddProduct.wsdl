@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:tns="http://xmlns.example.com/1363163131914/AddProductImpl/Services/SecureAdapters/NotifyMe/Add/Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://www.tibco.com/schemas/MEF/SharedResources/Schemas/SecureAdapters/NotifyMe/Schema.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1363163131914/AddProductImpl/Services/SecureAdapters/NotifyMe/Add/Interface">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/MEF/SharedResources/Schemas/SecureAdapters/NotifyMe/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/MEF/SharedResources/Schemas/SecureAdapters/NotifyMe/Schema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="AddProductIn">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:Username" minOccurs="0"/>
+                        <xs:element ref="ns0:Password" minOccurs="0"/>
+                        <xs:element ref="ns0:MSISDN" minOccurs="0"/>
+                        <xs:element ref="ns0:TransactionID" minOccurs="0"/>
+                        <xs:element ref="ns0:ListOfAttributes" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddProductOut">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:Status" minOccurs="0"/>
+                        <xs:element ref="ns0:Message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Attribute">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:Name" minOccurs="0"/>
+                        <xs:element ref="ns0:Value" minOccurs="0"/>
+                        <xs:element ref="ns0:Type" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ListOfAttributes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MSISDN" type="xs:string"/>
+            <xs:element name="Message" type="xs:string"/>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Password" type="xs:string"/>
+            <xs:element name="Status" type="xs:string"/>
+            <xs:element name="TransactionID" type="xs:string"/>
+            <xs:element name="Type" type="xs:string"/>
+            <xs:element name="Username" type="xs:string"/>
+            <xs:element name="Value" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="NotifyMe-AddProduct-SOAP">
+        <wsdl:port name="SOAPEventSource" binding="tns:SOAPEventSourceBinding">
+            <soap:address location="https://10.50.171.8:443/NotifyStatusLive/Services/SecureAdapters/NotifyMe/Add/Interface/NotifyMe-AddProduct-SOAP"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="AddProduct">
+        <wsdl:operation name="AddProduct">
+            <wsdl:input message="tns:AddProductIn"/>
+            <wsdl:output message="tns:AddProductOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SOAPEventSourceBinding" type="tns:AddProduct">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="AddProduct">
+            <soap:operation style="document" soapAction="/Services/SecureAdapters/NotifyMe/Add/Interface/NotifyMe-AddProduct-SOAP"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="AddProductIn"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="AddProductOut"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="AddProductIn">
+        <wsdl:part name="AddProductIn" element="ns0:AddProductIn"/>
+    </wsdl:message>
+    <wsdl:message name="AddProductOut">
+        <wsdl:part name="AddProductOut" element="ns0:AddProductOut"/>
+    </wsdl:message>
+</wsdl:definitions>

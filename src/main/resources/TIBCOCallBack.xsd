@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:provresponse"
+			xmlns="urn:provresponse" xmlns:tns="urn:provresponse" elementFormDefault="unqualified">
+	<xsd:element name="ProvResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="MSISDN" type="xsd:string"/>
+				<xsd:element name="SUB_TYPE" type="xsd:string"/>
+				<xsd:element name="SERVICE_TYPE" type="xsd:string"/>
+				<xsd:element name="CODE" type="xsd:string"/>
+				<xsd:element name="DESCRIPTION" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ProvResultResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="RESPONSECODE" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DeProvResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="MSISDN" type="xsd:string"/>
+				<xsd:element name="SERVICE_TYPE" type="xsd:string"/>
+				<xsd:element name="CODE" type="xsd:string"/>
+				<xsd:element name="DESCRIPTION" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DeProvResultResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="RESPONSECODE" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
